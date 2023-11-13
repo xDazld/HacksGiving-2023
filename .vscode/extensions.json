@@ -1,0 +1,24 @@
+{
+    "recommendations": [
+        "ms-toolsai.tensorboard",
+        "stylelint.vscode-stylelint",
+        "bradlc.vscode-tailwindcss",
+        "mathworks.language-matlab",
+        "figma.figma-vscode-extension",
+        "vscjava.vscode-java-pack",
+        "dbaeumer.vscode-eslint",
+        "editorconfig.editorconfig",
+        "codescene.codescene-vscode",
+        "ms-python.black-formatter",
+        "vmware.vscode-boot-dev-pack",
+        "ms-python.python",
+        "esbenp.prettier-vscode",
+        "ms-vsliveshare.vsliveshare",
+        "eamodio.gitlens",
+        "ms-vscode.vscode-node-azure-pack",
+        "angular.ng-template",
+        "astro-build.astro-vscode",
+        "github.copilot",
+        "ms-toolsai.jupyter"
+    ]
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalDependencies">
+    <plugin id="AngularJS" />
+    <plugin id="HtmlTools" />
+    <plugin id="JavaScript" />
+    <plugin id="Pythonid" />
+    <plugin id="com.github.copilot" />
+    <plugin id="com.intellij.spring.boot" />
+  </component>
+</project>
