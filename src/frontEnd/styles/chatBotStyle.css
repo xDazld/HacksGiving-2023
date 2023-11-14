@@ -1,0 +1,20 @@
+body {
+    max-height: 100vh;
+    background-color: white;
+}
+
+#chatArea {
+    height: 80vh;
+    max-height: 80vh;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: scroll;
+    background-color: whitesmoke;
+    border-radius: 15px;
+}
+
+#userInputArea {
+    display: block;
+    text-align: center;
+}
