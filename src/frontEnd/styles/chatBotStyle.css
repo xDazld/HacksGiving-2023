@@ -1,6 +1,30 @@
 body {
     max-height: 100vh;
     background-color: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+    @media (prefers-color-scheme: dark){
+        background-color: black;
+        color: white;
+    }
+}
+
+.navbar {
+    display: flex;
+    width: 100vw;
+    background-color: whitesmoke;
+    @media (prefers-color-scheme: dark){
+        background-color: darkgrey;
+    }
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 5vh;
+    & h1 {
+        margin-left: 3vw;
+        color: black;
+    }
 }
 
 #chatArea {
@@ -9,12 +33,57 @@ body {
     width: 80vw;
     margin-left: auto;
     margin-right: auto;
-    overflow-y: scroll;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    overflow-y: auto;
     background-color: whitesmoke;
+    @media (prefers-color-scheme: dark){
+        background-color: darkgrey;
+    }
+
     border-radius: 15px;
 }
 
 #userInputArea {
-    display: block;
+    display: flex;
     text-align: center;
+    align-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.button {
+    background-color: blue;
+    color: white;
+    width: 5vw;
+    height: 5vh;
+    border: none;
+    border-radius: 10px;
+    &:hover{
+        background-color: rgb(0, 0, 139);
+    }
+    &:active{
+        background-color: blue;
+        margin: 0.5vh 0.5vw;
+        width: 4vw;
+        height: 4vh;
+    }
+}
+
+.textInput {
+    width: 80%;
+    height: 5vh;
+    background: none;
+    border-radius: 10px;
+    color: black;
+    @media (prefers-color-scheme: dark){
+        color: white;
+    }
+    font-size: 1.5em;
+    resize: none;
+}
+
+.inputLabel {
+    font-size: 2em;
 }
