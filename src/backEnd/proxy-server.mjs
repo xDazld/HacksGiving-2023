@@ -1,8 +1,4 @@
-import express from "express"
-<<<<<<< HEAD
-const app = new express();
-const clients = [];
-=======
+import express from "express";
 import { createServer } from 'node:http';
 import { Server } from "socket.io";
 
@@ -10,13 +6,20 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server);
 const port = 8096;
->>>>>>> 0465236 (Implement frontend websockets)
+
+const clients = [];
+
+app.use(express.static("../frontEnd", {index:"index.html"}));
 
 app.get("/getResponseRequests", (request, response) => {
     for(let i = 0; i < clients.length; i++){
         if(!clients[i].generatedResponse){
             response.status(200);
-            response.json(clients[i]);
+            response.json({
+                id:clients[i].id,
+                userInput:clients[i].userInput,
+                generatedResponse:clients[i].generatedResponse
+            });
             return;
         }
     }
@@ -24,7 +27,6 @@ app.get("/getResponseRequests", (request, response) => {
     response.send("No available pending client responses");
 });
 
-<<<<<<< HEAD
 app.post("/postGeneratedResponse", (request, response) => {
     let responseBody = request.body;
     let id = responseBody.id;
@@ -32,7 +34,7 @@ app.post("/postGeneratedResponse", (request, response) => {
     for(let i = 0; i < clients; i++){
         if(clients[i].id === id){
             clients[i].generatedResponse = generatedResponse;
-            // TODO Add the part where the server socket sends the event notifying the browser client of the new generated response
+            clients[i].emit("generatedResponseReady", clients[i].generatedResponse);
             response.status(200);
             return;
         }
@@ -40,21 +42,27 @@ app.post("/postGeneratedResponse", (request, response) => {
     response.status(200);
 });
 
-app.listen(8096, () => {
-    console.log("listening on http://localhost:8096");
-});
-=======
 io.on("connection", (socket) => {
     console.log("a user connected");
+    let index = clients.length;
+    socket.userInput = "";
+    socket.generatedResponse = "";
     socket.on("inputMessage", (msg) => {
+        socket.userInput = msg;
         console.log("message: " + msg);
     });
     socket.on("disconnect", () => {
+        let index = clients.findIndex((socketObj)=>{
+            return socketObj.id === socket.id;
+        });
+        clients.splice(index, 1);
         console.log("user disconnected");
+        console.log(clients.length);
     });
+    clients.push(socket);
+    console.log(clients.length);
 });
 
 server.listen(port, () => {
-    console.log(`listening on localhost:${port}`);
+    console.log(`listening on Http://localhost:${port}`);
 });
->>>>>>> 0465236 (Implement frontend websockets)
