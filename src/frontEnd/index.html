@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="styles/chatBotStyle.css" rel="stylesheet">
-    <script src="js/chatFunctionality.js" type="module"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/chatFunctionality.js"></script>
     <title>Chatistic</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
 <div id="userInputArea">
     <label class="inputLabel" for="userInput">Chat:</label>
     <textarea class="textInput" id="userInput" name="message" placeholder="Message"></textarea>
-    <button class="button" type="button">Send</button>
+    <button class="button" type="button" id="sendButton">Send</button>
 </div>
 </body>
 </html>
