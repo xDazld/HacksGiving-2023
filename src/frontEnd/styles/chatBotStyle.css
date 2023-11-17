@@ -87,3 +87,14 @@ body {
 .inputLabel {
     font-size: 2em;
 }
+
+.userMessage {
+    display: block;
+    margin-left: 55%;
+    width: 40%;
+    background-color: lightblue;
+    text-align: center;
+    font-size: 1.5em;
+    border-radius: 20px;
+    color: black;
+}
