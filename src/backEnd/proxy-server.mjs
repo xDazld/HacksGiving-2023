@@ -2,17 +2,6 @@ import express from "express"
 const app = new express();
 const clients = [];
 
-clients.push({
-    id:0,
-    userInput:"Hello world",
-    generatedResponse:"bruh cringe"
-});
-clients.push({
-    id:1,
-    userInput:"world hello",
-    generatedResponse:""
-});
-
 app.get("/getResponseRequests", (request, response) => {
     for(let i = 0; i < clients.length; i++){
         if(!clients[i].generatedResponse){
