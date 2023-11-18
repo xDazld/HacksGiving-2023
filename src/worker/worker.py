@@ -50,13 +50,13 @@ def main():
     while True:
         id, input = get_work()
         if id is None or input is None:
-            time.sleep(5)
+            time.sleep(1)
             continue
         print("Generating response")
         sequences = generate(input)
         output = ""
         for seq in sequences:
-            output += seq + "\n"
+            output += seq["generated_text"] + "\n"
         body = {"id": id, "generatedResponse": output}
         requests.post(api_url + "/postGeneratedResponse", json=body)
 
