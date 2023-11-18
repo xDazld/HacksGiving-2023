@@ -22,17 +22,23 @@ app.get("/getResponseRequests", (request, response) => {
     for (let i = 0; i < clients.length; i++) {
         if (clients[i].userInput && !clients[i].locked) {
             clients[i].locked = true;
-            console.log(`Server is returning the client with ID:${clients[i].id}'s user input data to the Compute node.`);
+            console.log(
+                `Server is returning the client with ID:${clients[i].id}'s user input data to the Compute node.`,
+            );
             response.status(200);
             response.json({
                 id: clients[i].id,
-                userInput: clients[i].userInput
+                userInput: clients[i].userInput,
             });
-            console.log(`Client with ID:${clients[i].id} has been locked until the compute node posts a generated response.`);
+            console.log(
+                `Client with ID:${clients[i].id} has been locked until the compute node posts a generated response.`,
+            );
             return;
         }
     }
-    console.log("There were no clients connected or no clients with user input that is ready to be processed. Returing status 418 to compute node.");
+    console.log(
+        "There were no clients connected or no clients with user input that is ready to be processed. Returing status 418 to compute node.",
+    );
     response.sendStatus(418); //I am not a teapot status code which just means that there is no data available right now.
 });
 
@@ -50,12 +56,16 @@ app.post("/postGeneratedResponse", (request, response) => {
             clients[i].emit("generatedResponseReady", generatedResponse);
             clients[i].userInput = "";
             clients[i].locked = false;
-            console.log(`Client obj with ID:${id} has been unlocked. Client front end updated with the generated response.`);
+            console.log(
+                `Client obj with ID:${id} has been unlocked. Client front end updated with the generated response.`,
+            );
             response.sendStatus(200);
             return;
         }
     }
-    console.log(`There were no clients or connected with the ID:${id}. Returning status 418 to the server`);
+    console.log(
+        `There were no clients or connected with the ID:${id}. Returning status 418 to the server`,
+    );
     response.sendStatus(418);
     return;
 });
