@@ -14,6 +14,6 @@ window.onload = () => {
 
         sessionStorage.setItem("InitialQueryAnswers", JSON.stringify(jsonData));
         form.reset();
-        location.replace("hacksgiving/chatPage.html");
+        location.replace("HacksGiving-2023/chatPage.html");
     };
 };

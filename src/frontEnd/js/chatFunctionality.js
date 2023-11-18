@@ -1,5 +1,5 @@
 const socket = io({
-    path: "/hacksgiving/socket.io",
+    path: "/HacksGiving-2023/socket.io",
 });
 
 let chatArea;
