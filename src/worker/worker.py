@@ -54,8 +54,11 @@ def main():
             continue
         print("Generating response")
         sequences = generate(input)
-        body = {"id": id, "generatedResponse": sequences}
-        res = requests.post(api_url + "/postGeneratedResponse", json=body)
+        output = ""
+        for seq in sequences:
+            output += seq + "\n"
+        body = {"id": id, "generatedResponse": output}
+        requests.post(api_url + "/postGeneratedResponse", json=body)
 
 
 main()
