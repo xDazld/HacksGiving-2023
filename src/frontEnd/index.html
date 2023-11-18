@@ -1,24 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-us">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="/hacksgiving/styles/chatBotStyle.css" rel="stylesheet">
-    <script src="/hacksgiving/socket.io/socket.io.js"></script>
-    <script src="/hacksgiving/js/chatFunctionality.js"></script>
-    <title>Chatistic</title>
-</head>
-<body>
-<nav class="navbar">
-    <h1>Chatistic</h1>
-</nav>
-<div id="chatArea">
-
-</div>
-<div id="userInputArea">
-    <label class="inputLabel" for="userInput">Chat:</label>
-    <textarea class="textInput" id="userInput" name="message" placeholder="Message"></textarea>
-    <button class="button" type="button" id="sendButton">Send</button>
-</div>
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <link href="/hacksgiving/styles/chatBotStyle.css" rel="stylesheet" />
+        <script src="/hacksgiving/socket.io/socket.io.js"></script>
+        <script src="/hacksgiving/js/chatFunctionality.js"></script>
+        <title>Chatistic</title>
+    </head>
+    <body>
+        <nav class="navbar">
+            <h1>Chatistic</h1>
+        </nav>
+        <div id="chatArea"></div>
+        <div id="userInputArea">
+            <label class="inputLabel" for="userInput">Chat:</label>
+            <textarea
+                class="textInput"
+                id="userInput"
+                name="message"
+                placeholder="Message"
+            ></textarea>
+            <button class="button" type="button" id="sendButton">Send</button>
+        </div>
+    </body>
 </html>
