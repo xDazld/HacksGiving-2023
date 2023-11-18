@@ -53,5 +53,7 @@ dependencies:
   - dataclasses
   - peft
   - jupyter
+  - cuda-cudart
+  - cuda-cudart-static
   - pip:
     - trl
