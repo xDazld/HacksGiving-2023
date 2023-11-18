@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/backEnd.iml" filepath="$PROJECT_DIR$/backEnd.iml" />
       <module fileurl="file://$PROJECT_DIR$/frontEnd.iml" filepath="$PROJECT_DIR$/frontEnd.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/machineLearning/machineLearning.iml" filepath="$PROJECT_DIR$/src/machineLearning/machineLearning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/worker/worker.iml" filepath="$PROJECT_DIR$/src/worker/worker.iml" />
     </modules>
   </component>
 </project>
