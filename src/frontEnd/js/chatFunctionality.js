@@ -6,9 +6,8 @@ let loadingSymbol;
 let chatArea;
 
 const displayMessage = (message) => {
-    
     loadingSymbol.style.visibility = "hidden";
-    
+
     chatArea.innerHTML += `<div class='generatedResponse'>${message}</div>`;
 };
 
@@ -24,10 +23,10 @@ socket.on("generatedResponseReady", displayMessage);
 
 window.onload = () => {
     document.getElementById("sendButton").onclick = sendMessage;
-    document.getElementById('userInput').addEventListener("keydown",function(e){
-        if(e.key.toLowerCase() === "enter"){
+    document.getElementById("userInput").addEventListener("keydown", function (e) {
+        if (e.key.toLowerCase() === "enter") {
             sendMessage();
-        } 
+        }
     });
 
     chatArea = document.getElementById("chatArea");
