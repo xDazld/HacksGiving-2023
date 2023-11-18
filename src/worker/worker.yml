@@ -1,4 +1,4 @@
-name: HacksGivingWorker
+name: HacksGiving
 channels:
   - rapidsai
   - nvidia
@@ -9,7 +9,6 @@ dependencies:
   - python
   - transformers
   - pytorch-gpu
-  - intel-extension-for-pytorch
   - dpcpp_cpp_rt
   - dpnp
   - intel-openmp
@@ -23,7 +22,7 @@ dependencies:
   - requests
   - cucim
   - cuda-python
-  - cuda-version
+  - cuda-version=
   - cudf
   - cugraph
   - cuml
@@ -45,7 +44,6 @@ dependencies:
   - ucx
   - ucx-proc
   - accelerate
-  - bitsandbytes
   - einops
   - wandb
   - pip
@@ -53,7 +51,18 @@ dependencies:
   - dataclasses
   - peft
   - jupyter
-  - cuda-cudart
+  - cuda
   - cuda-cudart-static
+  - mkl
+  - mkl-dnn
+  - mkl-service
+  - mkl-mic
+  - mkl-include
+  - cudnn
+  - nccl
+  - intel_extension_for_transformers
   - pip:
     - trl
+    - tensorrt
+    - torch-tensorrt
+    - bitsandbytes
