@@ -19,10 +19,9 @@ window.onload = () => {
     document.getElementById("AcknowledgeAndContinueButton").onclick = acknowledgeUserAgreement;
 };
 
-
-const acknowledgeUserAgreement = () =>{
-    if(document.getElementById("AcknowledgeCheckBox").checked === true){
+const acknowledgeUserAgreement = () => {
+    if (document.getElementById("AcknowledgeCheckBox").checked === true) {
         document.getElementById("UserInteractionPreventer").className += "disipate";
         document.getElementById("AILegalAgreement").remove();
     }
-}
+};

@@ -20,10 +20,10 @@ socket.on("generatedResponseReady", displayMessage);
 window.onload = () => {
     document.getElementById("sendButton").onclick = sendMessage;
 
-    document.getElementById('userInput').addEventListener("keydown",function(e){
-        if(e.key.toLowerCase() === "enter"){
+    document.getElementById("userInput").addEventListener("keydown", function (e) {
+        if (e.key.toLowerCase() === "enter") {
             sendMessage();
-        } 
+        }
     });
 
     chatArea = document.getElementById("chatArea");

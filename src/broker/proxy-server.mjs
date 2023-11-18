@@ -18,7 +18,6 @@ app.use(express.urlencoded({ extended: true }));
  * Response gets a JSON with one object representing the first client that needs a response generated.
  */
 app.get("/getResponseRequests", (request, response) => {
-    
     for (let i = 0; i < clients.length; i++) {
         if (clients[i].userInput && !clients[i].locked) {
             clients[i].locked = true;
@@ -61,9 +60,7 @@ app.post("/postGeneratedResponse", (request, response) => {
             return;
         }
     }
-    console.log(
-        `There were no clients or connected with the ID:${id}.`,
-    );
+    console.log(`There were no clients or connected with the ID:${id}.`);
     response.sendStatus(418);
 });
 
