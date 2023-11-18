@@ -34,7 +34,7 @@ label {
     font-size: 1.5em;
 }
 
-label:first-child{
+label:first-child {
     font-weight: bold;
 }
 
@@ -47,7 +47,7 @@ input[type="radio"] {
     z-index: 1000;
     background-color: white;
     border-radius: 20px;
-    
+
     width: 40vw;
     height: fit-content;
     @media screen and (max-width: 400px) {
@@ -76,6 +76,11 @@ input[type="radio"] {
 }
 
 @keyframes disipate {
-    0% {background-color: #7c9a72c8;}
-    100% {background-color: #a3c99700; display: none;}
+    0% {
+        background-color: #7c9a72c8;
+    }
+    100% {
+        background-color: #a3c99700;
+        display: none;
+    }
 }
