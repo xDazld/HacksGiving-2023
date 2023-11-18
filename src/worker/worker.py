@@ -1,8 +1,9 @@
+import time
+
 import requests
 import torch
 import transformers
 from transformers import AutoTokenizer
-import time
 
 api_url = "https://pcr.dog/hacksgiving"
 
@@ -18,6 +19,7 @@ pipeline = transformers.pipeline(
     device_map="auto",
 )
 
+
 def generate(input: str):
     sequences = pipeline(
         input,
@@ -28,6 +30,7 @@ def generate(input: str):
         eos_token_id=tokenizer.eos_token_id,
     )
     return sequences
+
 
 def get_work():
     print("Getting work")
@@ -42,6 +45,7 @@ def get_work():
     json = res.json()
     return json["id"], json["userInput"]
 
+
 def main():
     while True:
         id, input = get_work()
@@ -50,10 +54,8 @@ def main():
             continue
         print("Generating response")
         sequences = generate(input)
-        body = {
-            "id": id,
-            "generatedResponse": sequences
-        }
+        body = {"id": id, "generatedResponse": sequences}
         res = requests.post(api_url + "/postGeneratedResponse", json=body)
+
 
 main()
