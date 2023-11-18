@@ -2,6 +2,7 @@ import requests
 import torch
 import transformers
 from transformers import AutoTokenizer
+import time
 
 api_url = "https://pcr.dog/hacksgiving"
 
@@ -17,23 +18,42 @@ pipeline = transformers.pipeline(
     device_map="auto",
 )
 
-
-def get_work():
-    response = requests.get(api_url + "/getResponseRequests").json()
-
-
-def get_sequence(prompt: str):
-    return pipeline(
-        prompt,
+def generate(input: str):
+    sequences = pipeline(
+        input,
         max_length=200,
         do_sample=True,
         top_k=10,
         num_return_sequences=1,
         eos_token_id=tokenizer.eos_token_id,
     )
+    return sequences
 
+def get_work():
+    print("Getting work")
+    res = requests.get(api_url + "/getResponseRequests")
+    if res.status_code == 418:
+        print("No work available")
+        return None, None
+    elif res.status_code != 200:
+        print("Error getting work")
+        return None, None
+    print("Work received")
+    json = res.json()
+    return json["id"], json["userInput"]
 
-while True:
-    sequences = get_sequence("Write a poem about Valencia.")
-    for seq in sequences:
-        print(f"Result: {seq['generated_text']}")
+def main():
+    while True:
+        id, input = get_work()
+        if id is None or input is None:
+            time.sleep(5)
+            continue
+        print("Generating response")
+        sequences = generate(input)
+        body = {
+            "id": id,
+            "generatedResponse": sequences
+        }
+        res = requests.post(api_url + "/postGeneratedResponse", json=body)
+
+main()
