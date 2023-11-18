@@ -3,25 +3,72 @@
     <head>
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <link href="/hacksgiving/styles/chatBotStyle.css" rel="stylesheet" />
-        <script src="/hacksgiving/socket.io/socket.io.js"></script>
-        <script src="/hacksgiving/js/chatFunctionality.js"></script>
+        <link href="hacksgiving/styles/generalStyle.css" rel="stylesheet"/>
+        <link href="hacksgiving/styles/index.css" rel="stylesheet"/>
+        <script src="hacksgiving/js/queryFormFunctionality.js"></script>
         <title>Chatistic</title>
     </head>
     <body>
         <nav class="navbar">
             <h1>Chatistic</h1>
         </nav>
-        <div id="chatArea"></div>
-        <div id="userInputArea">
-            <label class="inputLabel" for="userInput">Chat:</label>
-            <textarea
-                class="textInput"
-                id="userInput"
-                name="message"
-                placeholder="Message"
-            ></textarea>
-            <button class="button" type="button" id="sendButton">Send</button>
+        <div id="WelcomeMessage">
+            <h1>Welcome to "Arbitrary application name"!</h1>
+            <p>Please answer the follwoing questions so that we can get to know 
+                and understand how to better assist your needs. Thank you!
+            </p>
         </div>
+        <section id="QuerySection">
+            <form id="customForm">
+                <div class="question">
+                  <label for="question1">1. Do you know what Autism Spectrum Disorder (ASD) is?</label><br>
+                  <input type="radio" id="question1_option1" name="Do you know what Autism Spectrum Disorder (ASD) is?" value="Yes">
+                  <label for="question1_option1">Yes</label><br>
+                  <input type="radio" id="question1_option2" name="Do you know what Autism Spectrum Disorder (ASD) is?" value="No">
+                  <label for="question1_option2">No</label><br>
+                  <input type="radio" id="question1_option3" name="Do you know what Autism Spectrum Disorder (ASD) is?" value="Unsure">
+                  <label for="question1_option3">Unsure</label><br>
+                  <input type="radio" id="question1_option4" name="Do you know what Autism Spectrum Disorder (ASD) is?" value="N/A">
+                  <label for="question1_option4">N/A</label>
+                </div>
+                
+                <div class="question">
+                  <label for="question2">2. Do you suspect your child to have ASD?</label><br>
+                  <input type="radio" id="question2_option1" name="Do you suspect your child to have ASD?" value="Yes">
+                  <label for="question2_option1">Yes</label><br>
+                  <input type="radio" id="question2_option2" name="Do you suspect your child to have ASD?" value="No">
+                  <label for="question2_option2">No</label><br>
+                  <input type="radio" id="question2_option3" name="Do you suspect your child to have ASD?" value="Unsure">
+                  <label for="question2_option3">Unsure</label><br>
+                  <input type="radio" id="question2_option4" name="Do you suspect your child to have ASD?" value="N/A">
+                  <label for="question2_option4">N/A</label>
+                </div>
+            
+                <div class="question">
+                    <label for="question3">3. Has your child ever been screened for ASD?</label><br>
+                    <input type="radio" id="question3_option1" name="Has your child ever been screened for ASD?" value="Yes">
+                    <label for="question3_option1">Yes</label><br>
+                    <input type="radio" id="question3_option2" name="Has your child ever been screened for ASD?" value="No">
+                    <label for="question3_option2">No</label><br>
+                    <input type="radio" id="question3_option3" name="Has your child ever been screened for ASD?" value="Unsure">
+                    <label for="question3_option3">Unsure</label><br>
+                    <input type="radio" id="question3_option4" name="Has your child ever been screened for ASD?" value="N/A">
+                    <label for="question3_option4">N/A</label>
+                </div>
+            
+                <div class="question">
+                    <label for="question4">4. If so, did the results of the screening indicate a full evaluation is needed?</label><br>
+                    <input type="radio" id="question4_option1" name="If so, did the results of the screening indicate a full evaluation is needed?" value="Yes">
+                    <label for="question4_option1">Yes</label><br>
+                    <input type="radio" id="question4_option2" name="If so, did the results of the screening indicate a full evaluation is needed?" value="No">
+                    <label for="question4_option2">No</label><br>
+                    <input type="radio" id="question4_option3" name="If so, did the results of the screening indicate a full evaluation is needed?" value="Unsure">
+                    <label for="question4_option3">Unsure</label><br>
+                    <input type="radio" id="question4_option4" name="If so, did the results of the screening indicate a full evaluation is needed?" value="N/A">
+                    <label for="question4_option4">N/A</label>
+                </div>
+                <input type="submit" value="Submit">
+              </form>
+        </section>
     </body>
 </html>
