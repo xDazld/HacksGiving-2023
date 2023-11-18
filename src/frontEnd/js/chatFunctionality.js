@@ -1,5 +1,5 @@
 const socket = io({
-    path: "https://pcr.dog/HacksGiving-2023/socket.io",
+    path: "/HacksGiving-2023/socket.io",
 });
 
 let chatArea;
@@ -19,9 +19,16 @@ socket.on("generatedResponseReady", displayMessage);
 
 window.onload = () => {
     document.getElementById("sendButton").onclick = sendMessage;
+
+    document.getElementById('userInput').addEventListener("keydown",function(e){
+        if(e.key.toLowerCase() === "enter"){
+            sendMessage();
+        } 
+    });
+
     chatArea = document.getElementById("chatArea");
     document.getElementById("navBarTitle").onclick = () => {
         sessionStorage.clear();
-        location.replace("/hacksgiving");
+        location.replace("/HacksGiving-2023/");
     };
 };

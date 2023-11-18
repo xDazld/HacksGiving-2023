@@ -16,4 +16,13 @@ window.onload = () => {
         form.reset();
         location.replace("/HacksGiving-2023/chatPage.html");
     };
+    document.getElementById("AcknowledgeAndContinueButton").onclick = acknowledgeUserAgreement;
 };
+
+
+const acknowledgeUserAgreement = () =>{
+    if(document.getElementById("AcknowledgeCheckBox").checked === true){
+        document.getElementById("UserInteractionPreventer").className += "disipate";
+        document.getElementById("AILegalAgreement").remove();
+    }
+}

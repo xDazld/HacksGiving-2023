@@ -18,12 +18,13 @@ app.use(express.urlencoded({ extended: true }));
  * Response gets a JSON with one object representing the first client that needs a response generated.
  */
 app.get("/getResponseRequests", (request, response) => {
-    console.log("Compute node has made a request to /getResponseRequests");
+    
     for (let i = 0; i < clients.length; i++) {
         if (clients[i].userInput && !clients[i].locked) {
             clients[i].locked = true;
+            console.log("Compute node has made a request to /getResponseRequests");
             console.log(
-                `Server is returning the client with ID:${clients[i].id}'s user input data to the Compute node.`,
+                `Server is returning the client with ID:${clients[i].id} user's input data to the Compute node.`,
             );
             response.status(200);
             response.json({
@@ -36,9 +37,6 @@ app.get("/getResponseRequests", (request, response) => {
             return;
         }
     }
-    console.log(
-        "There were no clients connected or no clients with user input that is ready to be processed. Returing status 418 to compute node.",
-    );
     response.sendStatus(418); //I am not a teapot status code which just means that there is no data available right now.
 });
 
@@ -64,7 +62,7 @@ app.post("/postGeneratedResponse", (request, response) => {
         }
     }
     console.log(
-        `There were no clients or connected with the ID:${id}. Returning status 418 to the server`,
+        `There were no clients or connected with the ID:${id}.`,
     );
     response.sendStatus(418);
 });

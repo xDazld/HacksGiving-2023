@@ -30,10 +30,46 @@
 label {
     display: inline-block;
     margin-bottom: 5px;
+    font-weight: normal;
+    font-size: 1.5em;
+}
+
+label:first-child{
     font-weight: bold;
 }
 
 /* Style for radio buttons */
 input[type="radio"] {
     margin-right: 10px;
+}
+
+#AILegalAgreement {
+    z-index: 1000;
+    background-color: white;
+    border-radius: 20px;
+    width: 40vw;
+    height: fit-content;
+    padding: 5%;
+    position: fixed;
+    top: 10vw;
+    left: 30vw;
+}
+
+#UserInteractionPreventer {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    background-color: #7c9a72c8;
+}
+
+.disipate {
+    animation: disipate 0.33s linear 0s 1 forwards;
+}
+
+@keyframes disipate {
+    0% {background-color: #7c9a72c8;}
+    100% {background-color: #a3c99700; display: none;}
 }
