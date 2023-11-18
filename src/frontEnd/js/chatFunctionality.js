@@ -20,8 +20,8 @@ socket.on("generatedResponseReady", displayMessage);
 window.onload = () => {
     document.getElementById("sendButton").onclick = sendMessage;
     chatArea = document.getElementById("chatArea");
-    document.getElementById("navBarTitle").onclick = () =>{
+    document.getElementById("navBarTitle").onclick = () => {
         sessionStorage.clear();
         location.replace("/hacksgiving");
-    }
+    };
 };
