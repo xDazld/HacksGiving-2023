@@ -1,12 +1,12 @@
 const socket = io({
-    path:"/hacksgiving/socket.io"
+    path: "/hacksgiving/socket.io",
 });
 
 let chatArea;
 
-const displayMessage = (message) =>{
+const displayMessage = (message) => {
     chatArea.innerHTML += `<div class='generatedResponse'>${message}</div>`;
-}
+};
 
 const sendMessage = () => {
     const message = document.getElementById("userInput").value;
@@ -21,4 +21,3 @@ window.onload = () => {
     document.getElementById("sendButton").onclick = sendMessage;
     chatArea = document.getElementById("chatArea");
 };
-
