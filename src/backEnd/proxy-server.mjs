@@ -13,39 +13,50 @@ app.use(express.static("../frontEnd", { index: "index.html" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+/**
+ * API endpoint to get the next available object that needs to have its data processed.
+ * Response gets a JSON with one object representing the first client that needs a response generated.
+ */
 app.get("/getResponseRequests", (request, response) => {
+    console.log("Compute node has made a request to /getResponseRequests");
     for (let i = 0; i < clients.length; i++) {
-        if (!clients[i].generatedResponse) {
+        if (clients[i].userInput && !clients[i].locked) {
+            clients[i].locked = true;
+            console.log(`Server is returning the client with ID:${clients[i].id}'s user input data to the Compute node.`);
             response.status(200);
             response.json({
                 id: clients[i].id,
-                userInput: clients[i].userInput,
-                generatedResponse: clients[i].generatedResponse,
+                userInput: clients[i].userInput
             });
+            console.log(`Client with ID:${clients[i].id} has been locked until the compute node posts a generated response.`);
             return;
         }
     }
-    response.status(200);
-    response.send("No available pending client responses");
+    console.log("There were no clients connected or no clients with user input that is ready to be processed. Returing status 418 to compute node.");
+    response.sendStatus(418); //I am not a teapot status code which just means that there is no data available right now.
 });
 
+/**
+ * API endpoint for compute note to post a generated response
+ */
 app.post("/postGeneratedResponse", (request, response) => {
     let requestBody = request.body;
     let id = requestBody["id"];
+    console.log(`Compute node posted data for ID:${id}. Looking for Client with the provided ID.`);
     let generatedResponse = requestBody["generatedResponse"];
     for (let i = 0; i < clients.length; i++) {
-        console.log(clients[i].id);
-        if (clients[i].id === id) {
+        if (clients[i].id == id) {
             console.log(`Socket with correct ID found: ${clients[i].id}`);
-            clients[i].generatedResponse = generatedResponse;
-            clients[i].emit("generatedResponseReady", clients[i].generatedResponse);
-            response.status(200);
-            response.send("Updated frontend");
+            clients[i].emit("generatedResponseReady", generatedResponse);
+            clients[i].userInput = "";
+            clients[i].locked = false;
+            console.log(`Client obj with ID:${id} has been unlocked. Client front end updated with the generated response.`);
+            response.sendStatus(200);
             return;
         }
     }
-    response.status(200);
-    response.send("no clients with id found");
+    console.log(`There were no clients or connected with the ID:${id}. Returning status 418 to the server`);
+    response.sendStatus(418);
     return;
 });
 
@@ -53,7 +64,7 @@ io.on("connection", (socket) => {
     console.log("a user connected");
     let index = clients.length;
     socket.userInput = "";
-    socket.generatedResponse = "";
+    socket.locked = false;
     socket.on("inputMessage", (msg) => {
         socket.userInput = msg;
         console.log("message: " + msg);

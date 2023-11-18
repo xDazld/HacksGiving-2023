@@ -4,12 +4,15 @@ body {
     background-color: #A3C997;
     color: black;
     margin: 0;
+    margin-top: 9vh;
     padding: 0;
 }
 
 .navbar {
+    position: fixed;
+    top: 0;
+    width: 100vw;
     display: flex;
-    width: auto;
     background-color: #609A43;
     align-items: center;
     margin: 0;
