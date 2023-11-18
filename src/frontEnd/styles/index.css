@@ -47,8 +47,14 @@ input[type="radio"] {
     z-index: 1000;
     background-color: white;
     border-radius: 20px;
+    
     width: 40vw;
     height: fit-content;
+    @media screen and (max-width: 400px) {
+        width: 90vw;
+        height: 70vh;
+        overflow-y: scroll;
+    }
     padding: 5%;
     position: fixed;
     top: 10vw;
