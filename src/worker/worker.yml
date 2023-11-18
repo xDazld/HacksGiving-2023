@@ -45,7 +45,6 @@ dependencies:
   - ucx-proc
   - accelerate
   - einops
-  - wandb
   - pip
   - datasets
   - dataclasses
