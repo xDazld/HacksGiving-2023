@@ -38,7 +38,7 @@ def get_work():
     if res.status_code == 418:
         print("No work available")
         return None, None
-    elif res.status_code != 200:
+    if res.status_code != 200:
         print("Error getting work")
         return None, None
     print("Work received")
