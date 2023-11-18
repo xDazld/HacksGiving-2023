@@ -86,3 +86,20 @@
     border-radius: 20px;
     color: black;
 }
+
+#LoadingSymbol {
+    position: fixed;
+    display: block;
+    visibility: hidden;
+    bottom: 10vh;
+    left: 4vw;
+}
+
+.loading{
+    animation: loading 0.3s linear infinite forwards;
+}
+
+@keyframes loading {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}

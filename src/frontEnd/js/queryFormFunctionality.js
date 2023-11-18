@@ -20,9 +20,12 @@ window.onload = () => {
 };
 
 
-const acknowledgeUserAgreement = () =>{
+const acknowledgeUserAgreement = async () =>{
     if(document.getElementById("AcknowledgeCheckBox").checked === true){
         document.getElementById("UserInteractionPreventer").className += "disipate";
+        setTimeout(()=>{
+            document.getElementById("UserInteractionPreventer").remove();
+        }, 300);
         document.getElementById("AILegalAgreement").remove();
     }
 }
