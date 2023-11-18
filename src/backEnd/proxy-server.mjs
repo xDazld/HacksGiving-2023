@@ -10,6 +10,8 @@ const port = 8096;
 const clients = [];
 
 app.use(express.static("../frontEnd", {index:"index.html"}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/getResponseRequests", (request, response) => {
     for(let i = 0; i < clients.length; i++){
@@ -28,18 +30,23 @@ app.get("/getResponseRequests", (request, response) => {
 });
 
 app.post("/postGeneratedResponse", (request, response) => {
-    let responseBody = request.body;
-    let id = responseBody.id;
-    let generatedResponse = responseBody.generatedResponse;
-    for(let i = 0; i < clients; i++){
+    let requestBody = request.body;
+    let id = requestBody["id"];
+    let generatedResponse = requestBody["generatedResponse"];
+    for(let i = 0; i < clients.length; i++){
+        console.log(clients[i].id);
         if(clients[i].id === id){
+            console.log(`Socket with correct ID found: ${clients[i].id}`);
             clients[i].generatedResponse = generatedResponse;
             clients[i].emit("generatedResponseReady", clients[i].generatedResponse);
             response.status(200);
+            response.send("Updated frontend");
             return;
         }
     }
     response.status(200);
+    response.send("no clients with id found");
+    return;
 });
 
 io.on("connection", (socket) => {
