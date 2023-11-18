@@ -5,7 +5,7 @@ import torch
 import transformers
 from transformers import AutoTokenizer
 
-api_url = "https://pcr.dog/hacksgiving"
+api_url = "https://pcr.dog/HacksGiving-2023"
 
 model = "tiiuae/falcon-7b-instruct"
 
