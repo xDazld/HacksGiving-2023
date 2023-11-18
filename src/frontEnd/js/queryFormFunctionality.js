@@ -19,13 +19,12 @@ window.onload = () => {
     document.getElementById("AcknowledgeAndContinueButton").onclick = acknowledgeUserAgreement;
 };
 
-
-const acknowledgeUserAgreement = async () =>{
-    if(document.getElementById("AcknowledgeCheckBox").checked === true){
+const acknowledgeUserAgreement = async () => {
+    if (document.getElementById("AcknowledgeCheckBox").checked === true) {
         document.getElementById("UserInteractionPreventer").className += "disipate";
-        setTimeout(()=>{
+        setTimeout(() => {
             document.getElementById("UserInteractionPreventer").remove();
         }, 300);
         document.getElementById("AILegalAgreement").remove();
     }
-}
+};
