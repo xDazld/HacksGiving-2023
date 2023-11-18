@@ -1,7 +1,7 @@
-from transformers import AutoTokenizer
-import transformers
-import torch
 import requests
+import torch
+import transformers
+from transformers import AutoTokenizer
 
 api_url = "https://pcr.dog/hacksgiving"
 
