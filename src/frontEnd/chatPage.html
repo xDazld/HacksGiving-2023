@@ -3,26 +3,61 @@
     <head>
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <link href="styles/generalStyle.css" rel="stylesheet"/>
-        <link href="styles/chatBotStyle.css" rel="stylesheet"/>
-        <script src="/hacksgiving/socket.io/socket.io.js"></script>
+        <link href="styles/generalStyle.css" rel="stylesheet" />
+        <link href="styles/chatBotStyle.css" rel="stylesheet" />
+        <script src="https://pcr.dog/HacksGiving-2023/socket.io/socket.io.js"></script>
         <script src="js/chatFunctionality.js"></script>
-        <title>Chatistic</title>
+        <title>Next AI</title>
     </head>
     <body>
         <nav class="navbar">
-            <h1 id="navBarTitle">Chatistic</h1>
+            <h1 id="navBarTitle">Next AI</h1>
         </nav>
-        <div id="chatArea"></div>
+        <div id="chatArea">
+        </div>
         <div id="userInputArea">
-            <label class="inputLabel" for="userInput">Chat:</label>
             <textarea
                 class="textInput"
                 id="userInput"
                 name="message"
                 placeholder="Message"
-                ></textarea>
-            <button class="button" type="button" id="sendButton">Send</button>
+            ></textarea>
+            <svg xmlns="http://www.w3.org/2000/svg" width="109" height="109" viewBox="0 0 109 109" fill="none" id="sendButton" class="button">
+                <g filter="url(#filter0_d_42_120)">
+                <circle cx="54.5" cy="50.5" r="50.5" fill="#609A43"/>
+                </g>
+                <g filter="url(#filter1_d_42_120)">
+                <mask id="mask0_42_120" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="31" y="21" width="48" height="48">
+                <rect x="31" y="69" width="48" height="48" transform="rotate(-90 31 69)" fill="#D9D9D9"/>
+                </mask>
+                <g mask="url(#mask0_42_120)">
+                <path d="M55 40.05L40.3 54.75C39.8 55.25 39.2083 55.4917 38.525 55.475C37.8417 55.4584 37.25 55.2 36.75 54.7C36.25 54.2 36 53.6084 36 52.925C36 52.2417 36.25 51.65 36.75 51.15L52.15 35.8C52.55 35.4 53 35.1 53.5 34.9C54 34.7 54.5 34.6 55 34.6C55.5 34.6 56 34.7 56.5 34.9C57 35.1 57.45 35.4 57.85 35.8L73.25 51.2C73.75 51.7 73.9917 52.2834 73.975 52.95C73.9583 53.6167 73.7 54.2 73.2 54.7C72.7 55.2 72.1083 55.45 71.425 55.45C70.7417 55.45 70.15 55.2 69.65 54.7L55 40.05Z" fill="white"/>
+                </g>
+                <path d="M55 70.0156L55 38" stroke="white" stroke-width="6" stroke-linecap="round"/>
+                </g>
+                <defs>
+                <filter id="filter0_d_42_120" x="0" y="0" width="109" height="109" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="2"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_42_120"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_42_120" result="shape"/>
+                </filter>
+                <filter id="filter1_d_42_120" x="32" y="34.6001" width="45.9756" height="46.4155" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="2"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_42_120"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_42_120" result="shape"/>
+                </filter>
+                </defs>
+            </svg>
         </div>
     </body>
 </html>
