@@ -1,5 +1,5 @@
 import express from "express";
-import { createServer } from 'node:http';
+import { createServer } from "node:http";
 import { Server } from "socket.io";
 
 const app = express();
@@ -14,13 +14,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/getResponseRequests", (request, response) => {
-    for(let i = 0; i < clients.length; i++){
-        if(!clients[i].generatedResponse){
+    for (let i = 0; i < clients.length; i++) {
+        if (!clients[i].generatedResponse) {
             response.status(200);
             response.json({
-                id:clients[i].id,
-                userInput:clients[i].userInput,
-                generatedResponse:clients[i].generatedResponse
+                id: clients[i].id,
+                userInput: clients[i].userInput,
+                generatedResponse: clients[i].generatedResponse,
             });
             return;
         }
@@ -59,7 +59,7 @@ io.on("connection", (socket) => {
         console.log("message: " + msg);
     });
     socket.on("disconnect", () => {
-        let index = clients.findIndex((socketObj)=>{
+        let index = clients.findIndex((socketObj) => {
             return socketObj.id === socket.id;
         });
         clients.splice(index, 1);
