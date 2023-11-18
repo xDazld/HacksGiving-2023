@@ -24,7 +24,7 @@ def get_work():
 
 def get_sequence(prompt: str):
     return pipeline(
-        str,
+        prompt,
         max_length=200,
         do_sample=True,
         top_k=10,
