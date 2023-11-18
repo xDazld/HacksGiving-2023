@@ -9,7 +9,7 @@ const port = 8096;
 
 const clients = [];
 
-app.use(express.static("../frontEnd", {index:"index.html"}));
+app.use(express.static("../frontEnd", { index: "index.html" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -33,9 +33,9 @@ app.post("/postGeneratedResponse", (request, response) => {
     let requestBody = request.body;
     let id = requestBody["id"];
     let generatedResponse = requestBody["generatedResponse"];
-    for(let i = 0; i < clients.length; i++){
+    for (let i = 0; i < clients.length; i++) {
         console.log(clients[i].id);
-        if(clients[i].id === id){
+        if (clients[i].id === id) {
             console.log(`Socket with correct ID found: ${clients[i].id}`);
             clients[i].generatedResponse = generatedResponse;
             clients[i].emit("generatedResponseReady", clients[i].generatedResponse);
