@@ -5,7 +5,7 @@ import torch
 import transformers
 from transformers import AutoTokenizer
 
-api_url = "https://pcr.dog/hacksgiving"
+api_url = "https://pcr.dog/HacksGiving-2023"
 
 model = "tiiuae/falcon-7b-instruct"
 
@@ -50,12 +50,15 @@ def main():
     while True:
         id, input = get_work()
         if id is None or input is None:
-            time.sleep(5)
+            time.sleep(1)
             continue
         print("Generating response")
         sequences = generate(input)
-        body = {"id": id, "generatedResponse": sequences}
-        res = requests.post(api_url + "/postGeneratedResponse", json=body)
+        output = ""
+        for seq in sequences:
+            output += seq["generated_text"] + "\n"
+        body = {"id": id, "generatedResponse": output}
+        requests.post(api_url + "/postGeneratedResponse", json=body)
 
 
 main()
