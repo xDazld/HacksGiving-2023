@@ -1,6 +1,6 @@
 import express from "express";
-import { createServer } from "node:http";
-import { Server } from "socket.io";
+import {createServer} from "node:http";
+import {Server} from "socket.io";
 
 const app = express();
 const server = createServer(app);
@@ -67,7 +67,7 @@ app.post("/postGeneratedResponse", (request, response) => {
         `There were no clients or connected with the ID:${id}. Returning status 418 to the server`,
     );
     response.sendStatus(418);
-    return;
+
 });
 
 io.on("connection", (socket) => {
